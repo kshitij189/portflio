@@ -43,7 +43,7 @@ npm run preview
 
 ## 🚢 Deployment
 
-Configured for GitHub Pages at `https://kshitij189.github.io/portfolio/`.
+Configured for GitHub Pages at `https://kshitij189.github.io/portflio/`.
 
 To deploy somewhere else (Vercel, Netlify, a custom domain):
 

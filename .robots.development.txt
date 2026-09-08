@@ -3,4 +3,4 @@ Disallow: /private/
 Allow: /
 
 # Specify the location of your sitemap if you have one
-Sitemap: https://kshitij189.github.io/portfolio/sitemap.xml
+Sitemap: https://kshitij189.github.io/portflio/sitemap.xml
