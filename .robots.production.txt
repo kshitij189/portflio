@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /private/
+Allow: /
+
+# Sitemap must be a valid, absolute XML file URL
+Sitemap: https://kshitij189.github.io/portfolio/sitemap.xml
