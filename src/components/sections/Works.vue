@@ -97,7 +97,7 @@
                   <button
                     v-if="work.demoVideo"
                     type="button"
-                    class="border-accent text-accent hover:bg-accent hover:text-flax-smoke-950 flex cursor-pointer items-center gap-1.5 rounded-full border px-4 py-2 transition-[background-color,color] duration-500 ease-in-out"
+                    class="bg-accent text-flax-smoke-950 border-accent hover:text-accent flex cursor-pointer items-center gap-1.5 rounded-full border px-4 py-2 font-bold transition-[background-color,color] duration-500 ease-in-out hover:bg-transparent"
                     @click.prevent.stop="openDemo(work)"
                   >
                     <span aria-hidden="true">&#9654;</span>
