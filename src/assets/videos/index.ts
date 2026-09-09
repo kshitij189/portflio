@@ -6,4 +6,17 @@ import work3 from './work3.webm';
 import work4 from './work4.webm';
 import work5 from './work5.webm';
 
-export { earthLottie, contact, work1, work2, work3, work4, work5 };
+// Full-length walkthroughs, opened from the "Watch demo" button on a project
+// card. These are megabytes each and are only fetched when the modal opens.
+import work1Full from './work1-full.webm';
+
+export {
+  earthLottie,
+  contact,
+  work1,
+  work2,
+  work3,
+  work4,
+  work5,
+  work1Full,
+};

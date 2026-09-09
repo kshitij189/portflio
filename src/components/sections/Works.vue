@@ -75,6 +75,7 @@
                   :src="work.videoSrc"
                   muted
                   :autoplay="false"
+                  preload="metadata"
                   type="video/webm"
                   class="size-[80%] rounded-md object-contain blur transition-all duration-500 ease-in-out"
                 ></video>
@@ -88,7 +89,20 @@
                 <h3 class="heading-3 font-title! font-bold uppercase">
                   {{ work.name }}
                 </h3>
-                <div class="flex gap-1.5 select-none">
+                <div class="flex flex-wrap gap-1.5 select-none">
+                  <!--
+                    Sits inside the card's <a>, so the click has to be stopped
+                    or it would also follow the project link.
+                  -->
+                  <button
+                    v-if="work.demoVideo"
+                    type="button"
+                    class="border-accent text-accent hover:bg-accent hover:text-flax-smoke-950 flex cursor-pointer items-center gap-1.5 rounded-full border px-4 py-2 transition-[background-color,color] duration-500 ease-in-out"
+                    @click.prevent.stop="openDemo(work)"
+                  >
+                    <span aria-hidden="true">&#9654;</span>
+                    <span>Watch demo</span>
+                  </button>
                   <p
                     class="border-flax-smoke-300 hover:bg-flax-smoke-300 hover:text-flax-smoke-900 rounded-full border px-4 py-2 transition-[background-color,color] duration-500 ease-in-out"
                     v-for="tag in work.tags"
@@ -108,6 +122,12 @@
         </div>
       </aside>
     </div>
+
+    <DemoModal
+      :src="activeDemo?.demoVideo"
+      :title="activeDemo?.name"
+      @close="activeDemo = null"
+    />
   </section>
 </template>
 
@@ -117,8 +137,25 @@
   import { computed, onBeforeMount, onMounted, ref, useTemplateRef } from 'vue';
   import gsap from 'gsap';
   import { useWindowSize } from '@vueuse/core';
-  import { work1, work2, work3, work4, work5 } from '@/assets/videos';
+  import { work1, work1Full, work2, work3, work4, work5 } from '@/assets/videos';
   import { workBg1, workBg2, workBg3, workBg4, workBg5 } from '@/assets/images';
+  import { DemoModal } from '../design';
+
+  type Work = {
+    name: string;
+    category: string;
+    tags: string[];
+    videoSrc: string;
+    imageBg: string;
+    url: string;
+    year: string;
+    demoVideo?: string;
+  };
+
+  const activeDemo = ref<Work | null>(null);
+  const openDemo = (work: Work) => {
+    activeDemo.value = work;
+  };
   const videoRefs = useTemplateRef<HTMLVideoElement[]>('videoRefs');
 
   const isSmallScreen = computed(() => {
@@ -142,16 +179,16 @@
     tl.reverse();
   };
 
-  const selectedWorksProps = [
+  const selectedWorksProps: Work[] = [
     {
       name: 'DocProcessor',
       category: 'Async Pipeline & RAG',
       tags: ['FastAPI', 'Celery', 'ChromaDB'],
       videoSrc: work1,
       imageBg: workBg1,
-      // TODO: replace with your live demo URL
-      url: 'TODO_LIVE_URL_DOCPROCESSOR',
+      url: 'https://doc-processor-m0cm.onrender.com',
       year: '2026',
+      demoVideo: work1Full,
     },
     {
       name: 'CortexMCP',
