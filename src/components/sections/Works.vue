@@ -137,7 +137,15 @@
   import { computed, onBeforeMount, onMounted, ref, useTemplateRef } from 'vue';
   import gsap from 'gsap';
   import { useWindowSize } from '@vueuse/core';
-  import { work1, work1Full, work2, work3, work4, work5 } from '@/assets/videos';
+  import {
+    work1,
+    work1Full,
+    work2,
+    work2Full,
+    work3,
+    work4,
+    work5,
+  } from '@/assets/videos';
   import { workBg1, workBg2, workBg3, workBg4, workBg5 } from '@/assets/images';
   import { DemoModal } from '../design';
 
@@ -196,9 +204,9 @@
       tags: ['FastAPI', 'Redis', 'Gemini'],
       videoSrc: work2,
       imageBg: workBg2,
-      // TODO: replace with your live demo URL
-      url: 'TODO_LIVE_URL_CORTEXMCP',
+      url: 'https://cortexmcp.onrender.com',
       year: '2026',
+      demoVideo: work2Full,
     },
     {
       name: 'SplitEase',
