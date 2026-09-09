@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Raw screen recordings. These are hundreds of MB and must never be committed —
+# GitHub rejects files over 100MB. Drop originals here and encode them to
+# compressed .webm in the parent directory instead.
+src/assets/videos/raw/
+*.mkv
+*.mov
