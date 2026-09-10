@@ -6,8 +6,7 @@
       <div
         v-for="section in footerSections"
         :key="section.title"
-        class="flex flex-col md:col-span-3"
-        :class="{ 'md:col-span-6': section.title === 'Menu' }"
+        class="flex flex-col md:col-span-6"
       >
         <p
           class="heading-5 border-flax-smoke-400 w-full border-b pb-2 font-bold"
@@ -32,6 +31,36 @@
           © {{ new Date().getFullYear() }} Kshitij <br />
           All rights reserved.
         </h6>
+        <!--
+          Design and original-code attribution. Kept deliberately: the UI is
+          Huy Nguyen's and this Vue implementation is Ebraheem Alhetari's, and
+          his README asks that both be credited. Set as one quiet line rather
+          than a full column, which is where design credits normally sit.
+          Not lowercased, unlike the rest of the footer — these are names.
+        -->
+        <p class="font-fancy text-flax-smoke-500 mt-4 text-sm font-medium">
+          <span
+            v-for="(credit, i) in resourceLinks"
+            :key="credit.label"
+            class="text-nowrap"
+          >
+            <span v-if="i > 0" aria-hidden="true"> · </span>
+            <!--
+              The label is wrapped in a span on purpose. style.css sets
+              `a { font-body }`, but no font named 'body' is ever defined, so
+              bare anchor text falls back to the browser serif. Span text picks
+              up `font-fancy !important` and matches the rest of the footer.
+            -->
+            <a
+              :href="credit.url"
+              target="_blank"
+              rel="noopener"
+              class="hover:text-accent transition-colors duration-300"
+            >
+              <span>{{ credit.label }}</span>
+            </a>
+          </span>
+        </p>
       </div>
 
       <div
@@ -96,7 +125,7 @@
   const footerSections = [
     { title: 'Menu', links: navbarLinks },
     { title: 'Socials', links: socialLinks },
-    { title: 'Credits', links: resourceLinks },
+    // resourceLinks are rendered separately, as a single line by the copyright.
   ];
 
   const myLocalTime = ref('');

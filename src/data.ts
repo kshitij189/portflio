@@ -50,14 +50,15 @@ const socialLinks = [
   },
 ];
 
-// Design and original code credit — see README.
+// Design and original-code credit, rendered as one line beside the copyright
+// in the footer. See README — Ebraheem's terms ask that both be credited.
 const resourceLinks = [
   {
-    label: 'Huy Nguyen (UI design)',
+    label: 'Design: Huy Nguyen',
     url: 'https://www.huyng.xyz',
   },
   {
-    label: 'Ebraheem Alhetari (original code)',
+    label: 'Code base: Ebraheem Alhetari',
     url: 'https://github.com/Hetari/portfolio',
   },
 ];
