@@ -145,6 +145,7 @@
     work3,
     work3Full,
     work4,
+    work4Full,
     work5,
   } from '@/assets/videos';
   import { workBg1, workBg2, workBg3, workBg4, workBg5 } from '@/assets/images';
@@ -225,8 +226,10 @@
       tags: ['Node.js', 'Express', 'PostgreSQL'],
       videoSrc: work4,
       imageBg: workBg4,
+      // No public deployment for this one, so the card links to the repo.
       url: 'https://github.com/kshitij189/payout-system',
       year: '2025',
+      demoVideo: work4Full,
     },
     {
       name: 'CLI Login System',

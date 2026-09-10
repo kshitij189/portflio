@@ -11,6 +11,7 @@ import work5 from './work5.webm';
 import work1Full from './work1-full.webm';
 import work2Full from './work2-full.webm';
 import work3Full from './work3-full.webm';
+import work4Full from './work4-full.webm';
 
 export {
   earthLottie,
@@ -23,4 +24,5 @@ export {
   work1Full,
   work2Full,
   work3Full,
+  work4Full,
 };
