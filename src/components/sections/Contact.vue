@@ -48,11 +48,8 @@
             class="flex-center py border-flax-smoke-300 text-flax-smoke-300 w-fit flex-col border border-l-0 font-mono"
           >
             <p
-              class="border-flax-smoke-300 flex size-full items-center justify-start border-b pr-2 pl-1 font-bold"
+              class="flex size-full items-center justify-start pr-2 pl-1 font-bold"
             >
-              Working Remotely
-            </p>
-            <p class="flex size-full items-center justify-start pr-2 pl-1">
               Open to work
             </p>
           </div>
