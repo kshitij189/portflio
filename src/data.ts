@@ -50,22 +50,11 @@ const socialLinks = [
   },
 ];
 
-// Rendered as one line beside the copyright in the footer: this site's own
-// source first, then the design and original-code credits. See README —
-// Ebraheem's terms ask that he and Huy Nguyen both be credited by anyone
-// reusing this, so those two entries stay.
+// Rendered as one line beside the copyright in the footer.
 const resourceLinks = [
   {
     label: 'Source: kshitij189/portflio',
     url: 'https://github.com/kshitij189/portflio',
-  },
-  {
-    label: 'Design: Huy Nguyen',
-    url: 'https://www.huyng.xyz',
-  },
-  {
-    label: 'Code base: Ebraheem Alhetari',
-    url: 'https://github.com/Hetari/portfolio',
   },
 ];
 
