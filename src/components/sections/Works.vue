@@ -147,6 +147,7 @@
     work4,
     work4Full,
     work5,
+    work5Full,
   } from '@/assets/videos';
   import { workBg1, workBg2, workBg3, workBg4, workBg5 } from '@/assets/images';
   import { DemoModal } from '../design';
@@ -237,8 +238,10 @@
       tags: ['Go', 'TOTP 2FA', 'Docker'],
       videoSrc: work5,
       imageBg: workBg5,
+      // CLI tool, so there is nothing to deploy - the card links to the repo.
       url: 'https://github.com/kshitij189/cli-login-system',
       year: '2025',
+      demoVideo: work5Full,
     },
   ];
 
