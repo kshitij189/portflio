@@ -26,7 +26,7 @@
       <h3
         id="little-bit-about-me"
         v-html="aboutMe"
-        class="heading-1-alt lg:heading-1 section-heading col-span-full leading-none font-extrabold uppercase md:col-span-8 md:col-start-6"
+        class="heading-3 lg:heading-2 section-heading col-span-full leading-none font-extrabold uppercase md:col-span-8 md:col-start-6"
       ></h3>
     </div>
 
@@ -63,14 +63,13 @@
             ( ABOUT ME )
           </p>
           <p class="heading-6 font-fancy w-full text-balance sm:max-w-[40ch]">
-            I'm a final-year CSE student at IIIT Nagpur, most recently a backend
-            SDE intern at Zhecker Technologies, where I built Celery and Redis
-            pipelines that processed large batches of documents without blocking
-            anyone. I like problems where correctness under concurrency actually
-            matters. <br /><br />
+            I'm a recent Computer Science graduate from IIIT Nagpur, most
+            recently a backend SDE intern at Zhecker Technologies, where I built
+            Celery and Redis pipelines that processed large batches of documents
+            without blocking anyone. I like problems where correctness under
+            concurrency actually matters. <br /><br />
             When I'm not shipping backends, I'm usually deep in a competitive
-            programming contest — 350+ problems solved, Knight on LeetCode, and
-            a global rank of 177 in CodeChef Starters 159.
+            programming contest — 350+ problems solved and Knight on LeetCode.
           </p>
         </div>
       </div>
@@ -88,9 +87,21 @@
   import { textSplitterIntoChar } from '@/functions';
   import { onBeforeMount, onMounted, ref } from 'vue';
 
-  // Each word renders as its own block at heading-1 size, so keep every word
-  // under ~13 characters or it overflows the column and gets clipped.
-  const aboutMe = ref('Backend, Systems, Distributed/');
+  // textSplitterIntoChar splits on spaces and gives each result its own
+  // non-wrapping block, i.e. one line. The pairs below are joined with a
+  // non-breaking space so "Backend Development" stays on one line instead of
+  // breaking in two. Longer lines need a smaller heading size to fit the
+  // column — see the class list on the h3 above.
+  const NB = '\u00A0'; // non-breaking space keeps each pair on one line
+  const ABOUT_HEADING =
+    'Backend' +
+    NB +
+    'Development, Distributed' +
+    NB +
+    'Systems, Agentic' +
+    NB +
+    'Systems/';
+  const aboutMe = ref(ABOUT_HEADING);
 
   // const initialPath = ref(`M0 0H${width.value}  V${height.value} H0 Z`);
   // const targetPath = ref(
@@ -98,11 +109,7 @@
   // );
 
   onBeforeMount(() => {
-    aboutMe.value = textSplitterIntoChar(
-      'Backend, Systems, Distributed/',
-      true,
-      true,
-    );
+    aboutMe.value = textSplitterIntoChar(ABOUT_HEADING, true, true);
   });
 
   onMounted(() => {
