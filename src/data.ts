@@ -42,13 +42,11 @@ const socialLinks = [
   },
   {
     label: 'LinkedIn',
-    // TODO: replace with your LinkedIn profile URL
-    url: 'https://www.linkedin.com/in/TODO-your-linkedin-handle/',
+    url: 'https://www.linkedin.com/in/kshitij-tripathi-b20a9625a/',
   },
   {
     label: 'LeetCode',
-    // TODO: replace with your LeetCode profile URL
-    url: 'https://leetcode.com/u/TODO-your-leetcode-handle/',
+    url: 'https://leetcode.com/u/pele_3010/',
   },
 ];
 
