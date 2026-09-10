@@ -96,8 +96,8 @@
         <p
           class="heading-6 font-fancy text-flax-smoke-400 hidden font-bold uppercase select-none md:block"
         >
-          open to backend engineering <br />
-          roles and collaboration
+          open to backend and ai <br />
+          engineering roles
         </p>
       </div>
       <div class="flex">

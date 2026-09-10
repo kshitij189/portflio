@@ -77,12 +77,13 @@
               >
                 Currently
               </p>
-              <!-- Keep this to ~7 characters: the column is ~512px wide at
-                   1920, so anything longer wraps and unbalances the hero. -->
+              <!-- The column is only ~512px wide at 1920, so this is sized to
+                   wrap onto two lines rather than overflow. Going back up to
+                   heading-1 needs the text kept to about seven characters. -->
               <h3
-                class="3xl:heading-1 heading-1-alt font-fancy block text-nowrap leading-none font-bold -tracking-tight"
+                class="heading-3 sm:heading-2 font-fancy block leading-none font-bold -tracking-tight text-balance"
               >
-                Open
+                Open to opportunities
               </h3>
             </div>
           </div>

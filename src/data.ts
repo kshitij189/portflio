@@ -59,7 +59,7 @@ const resourceLinks = [
 ];
 
 const heroText =
-  'A backend developer building asynchronous, distributed systems that stay fast and correct under load.';
+  'A backend developer and AI engineer building asynchronous, distributed systems that stay fast and correct under load.';
 
 const locationPlace = `21°08'44.9"N 79°05'17.5"E`;
 const locationCountry = 'India, Nagpur';
