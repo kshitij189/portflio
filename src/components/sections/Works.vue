@@ -143,6 +143,7 @@
     work2,
     work2Full,
     work3,
+    work3Full,
     work4,
     work5,
   } from '@/assets/videos';
@@ -214,9 +215,9 @@
       tags: ['Django', 'PostgreSQL', 'Gemini'],
       videoSrc: work3,
       imageBg: workBg3,
-      // TODO: replace with your live demo URL
-      url: 'TODO_LIVE_URL_SPLITEASE',
+      url: 'https://splitease-frontend-tzjt.onrender.com',
       year: '2026',
+      demoVideo: work3Full,
     },
     {
       name: 'Payout System',

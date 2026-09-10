@@ -10,6 +10,7 @@ import work5 from './work5.webm';
 // card. These are megabytes each and are only fetched when the modal opens.
 import work1Full from './work1-full.webm';
 import work2Full from './work2-full.webm';
+import work3Full from './work3-full.webm';
 
 export {
   earthLottie,
@@ -21,4 +22,5 @@ export {
   work5,
   work1Full,
   work2Full,
+  work3Full,
 };
