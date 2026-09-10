@@ -99,9 +99,3 @@ files, and the `sitemap()` options in `vite.config.ts`.
 - **Testimonials** are removed from the page but the component is intact.
   Add entries to `people` in `src/components/design/Slider.vue`, then restore
   `<People />` in `App.vue` and the nav entry in `src/data.ts`.
-
-## Acknowledgements
-
-The visual design is by [Huy Nguyen](https://www.huyng.xyz), and this Vue
-implementation began as a fork of [Ebraheem Alhetari's portfolio](https://github.com/Hetari/portfolio).
-All content, copy, project demos and assets here are my own.
