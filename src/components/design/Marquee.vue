@@ -10,12 +10,11 @@
     >
       <h4
         v-for="_ in 2"
-        :id="`marquee-item-${_}`"
-        :key="`marquee-item-${_}`"
-        class="sm:heading-1 flex w-full items-center text-3xl font-bold text-nowrap whitespace-nowrap max-sm:mx-6"
+        :key="`marquee-1-item-${_}`"
+        class="sm:heading-1 flex shrink-0 items-center text-3xl font-bold text-nowrap whitespace-nowrap max-sm:mx-6"
       >
-        BACKEND DEVELOPER AND AI ENGINEER
-        <div class="w-fit scale-50 sm:scale-75">
+        {{ marqueeText }}
+        <div class="w-fit shrink-0 scale-50 sm:scale-75">
           <svg
             class="ms-10 me-10"
             style="width: var(--heading-display)"
@@ -37,12 +36,11 @@
     >
       <h4
         v-for="_ in 2"
-        :id="`marquee-item-${_}`"
-        :key="`marquee-item-${_}`"
-        class="sm:heading-1 flex w-full items-center text-3xl font-bold text-nowrap whitespace-nowrap max-sm:mx-6"
+        :key="`marquee-2-item-${_}`"
+        class="sm:heading-1 flex shrink-0 items-center text-3xl font-bold text-nowrap whitespace-nowrap max-sm:mx-6"
       >
-        BACKEND DEVELOPER AND AI ENGINEER
-        <div class="mx-2 inline-block scale-50 sm:scale-75">
+        {{ marqueeText }}
+        <div class="mx-2 inline-block w-fit shrink-0 scale-50 sm:scale-75">
           <svg
             class="ms-10 me-10"
             style="width: var(--heading-display)"
@@ -67,68 +65,63 @@
 
   gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
 
+  const marqueeText = 'BACKEND & AI ENGINEER';
+
+  /**
+   * Scrolls `selector`'s children horizontally, forever.
+   *
+   * The previous version sized each item with `w-full` and travelled
+   * `itemWidth * items.length * cloneCount`, which did not match the width of
+   * the content actually in the DOM. Short text hid the error; longer text made
+   * the copies collide. Now each item takes its natural width (`shrink-0`), the
+   * travel distance is exactly one set of the original items — so the next set
+   * lands precisely where the previous one started — and enough clones are made
+   * to cover that travel plus the viewport.
+   */
   const createMarquee = (
     selector: string,
     direction: number,
     duration: number,
   ): void => {
-    const container = document.querySelector(selector) as HTMLElement;
-    const items = Array.from(container.children) as HTMLElement[];
+    const container = document.querySelector(selector) as HTMLElement | null;
+    if (!container) return;
 
-    const cloneCount = 2;
-    for (let i = 0; i < cloneCount; i++) {
-      Array.from(items).forEach((item) => {
-        let clone = item.cloneNode(true) as HTMLElement;
-        container.appendChild(clone);
-      });
+    const originals = Array.from(container.children) as HTMLElement[];
+    if (!originals.length) return;
+
+    const setWidth = originals.reduce(
+      (total, el) => total + el.getBoundingClientRect().width,
+      0,
+    );
+    if (setWidth === 0) return;
+
+    const copies = Math.ceil(window.innerWidth / setWidth) + 1;
+    for (let i = 0; i < copies; i++) {
+      originals.forEach((el) => container.appendChild(el.cloneNode(true)));
     }
 
-    const itemWidth = items[0].clientWidth;
-    const totalWidth = itemWidth * items.length * cloneCount;
-
-    // Set initial position based on direction
-    const startPosition = direction === 1 ? 0 : totalWidth;
-
-    // Set the starting position
-    gsap.set(container, {
-      x: -startPosition,
-    });
-
+    gsap.set(container, { x: direction === 1 ? 0 : -setWidth });
     gsap.to(container, {
-      x: direction === 1 ? -totalWidth : 0,
-      duration: duration,
+      x: direction === 1 ? -setWidth : 0,
+      duration,
       ease: 'none',
       repeat: -1,
     });
   };
+
   onMounted(() => {
-    createMarquee('#marquee-1', 1, 50);
-    createMarquee('#marquee-2', -1, 50);
+    createMarquee('#marquee-1', 1, 25);
+    createMarquee('#marquee-2', -1, 25);
 
     const tl = gsap.timeline({
       scrollTrigger: {
-        markers: !true,
-
         trigger: '#marquee-section',
         start: 'top center',
         end: '110% center',
         scrub: 0.1,
       },
     });
-    tl.fromTo(
-      '#marquee-1',
-      {
-        yPercent: 0,
-      },
-      { yPercent: -100 },
-    );
-    tl.fromTo(
-      '#marquee-2',
-      {
-        yPercent: 0,
-      },
-      { yPercent: -100 },
-      '<',
-    );
+    tl.fromTo('#marquee-1', { yPercent: 0 }, { yPercent: -100 });
+    tl.fromTo('#marquee-2', { yPercent: 0 }, { yPercent: -100 }, '<');
   });
 </script>
